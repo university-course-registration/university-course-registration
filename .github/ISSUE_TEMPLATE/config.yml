@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name:  Documentation
+    url: https://github.com/yourusername/university-course-registration/blob/main/README.md
+    about: Check the documentation for setup instructions and usage guides
+  - name:  Discussions
+    url: https://github.com/yourusername/university-course-registration/discussions
+    about: Ask questions, share ideas, or discuss the project with the community
+  - name:  Security Issue
+    url: https://github.com/yourusername/university-course-registration/security/advisories/new
+    about: Report a security vulnerability privately (do not create a public issue)
+  - name:  Contributing Guide
+    url: https://github.com/yourusername/university-course-registration/blob/main/CONTRIBUTING.md
+    about: Learn how to contribute to the project

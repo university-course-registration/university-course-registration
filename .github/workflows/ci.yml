@@ -1,0 +1,171 @@
+name: CI/CD Pipeline
+
+# Note: Using Node.js 20.x because ESLint 10 and Vite 8 require util.styleText() 
+# which was added in Node.js 20.12.0 and is not available in Node.js 18.x
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  server-tests:
+    name: Server Tests
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: server/package-lock.json
+      
+      - name: Install server dependencies
+        working-directory: ./server
+        run: npm ci
+      
+      - name: Run server linting
+        working-directory: ./server
+        run: npm run lint
+        continue-on-error: true
+      
+      - name: Run server tests
+        working-directory: ./server
+        run: npm test -- --coverage
+        continue-on-error: true
+        env:
+          NODE_ENV: test
+          MONGODB_URI: mongodb://localhost:27017/test_db
+          JWT_SECRET: test_jwt_secret_for_ci
+      
+      - name: Upload server coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-coverage-${{ matrix.node-version }}
+          path: server/coverage
+      
+      - name: Check server coverage thresholds
+        working-directory: ./server
+        run: npm test -- --coverage --coverageThreshold='{"global":{"branches":60,"functions":60,"lines":60,"statements":60}}'
+        env:
+          NODE_ENV: test
+          MONGODB_URI: mongodb://localhost:27017/test_db
+          JWT_SECRET: test_jwt_secret_for_ci
+
+  client-tests:
+    name: Client Tests
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: client/package-lock.json
+      
+      - name: Install client dependencies
+        working-directory: ./client
+        run: npm ci
+      
+      - name: Run client linting
+        working-directory: ./client
+        run: npm run lint
+        continue-on-error: true
+      
+      - name: Run client tests
+        working-directory: ./client
+        run: npm run test:coverage
+      
+      - name: Upload client coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-coverage-${{ matrix.node-version }}
+          path: client/coverage
+      
+      - name: Build client
+        working-directory: ./client
+        run: npm run build
+        env:
+          VITE_API_BASE_URL: http://localhost:5000/api
+      
+      - name: Upload client build
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-build-${{ matrix.node-version }}
+          path: client/dist
+
+  coverage-report:
+    name: Coverage Report
+    runs-on: ubuntu-latest
+    needs: [server-tests, client-tests]
+    if: always()
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Download server coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: server-coverage-20.x
+          path: server/coverage
+        continue-on-error: true
+      
+      - name: Download client coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: client-coverage-20.x
+          path: client/coverage
+        continue-on-error: true
+      
+      - name: Display coverage summary
+        run: |
+          echo "## Coverage Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "server/coverage/coverage-summary.json" ]; then
+            echo "### Server Coverage" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            cat server/coverage/coverage-summary.json >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ -f "client/coverage/coverage-summary.json" ]; then
+            echo "### Client Coverage" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            cat client/coverage/coverage-summary.json >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  build-status:
+    name: Build Status
+    runs-on: ubuntu-latest
+    needs: [server-tests, client-tests, coverage-report]
+    if: always()
+    
+    steps:
+      - name: Check build status
+        run: |
+          if [ "${{ needs.server-tests.result }}" != "success" ] || [ "${{ needs.client-tests.result }}" != "success" ]; then
+            echo "Build failed"
+            exit 1
+          else
+            echo "Build passed"
+          fi
