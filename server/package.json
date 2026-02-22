@@ -1,32 +1,40 @@
 {
-  "name": "university-course-registration",
+  "name": "server",
   "version": "1.0.0",
-  "description": "University Course Registration System - A full-stack MERN application",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm run dev",
-    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
-    "test": "cd server && npm test && cd ../client && npm test",
-    "lint": "cd server && npm run lint && cd ../client && npm run lint",
-    "build": "cd client && npm install && npm run build"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node scripts/seedDatabase.js",
+    "seed:users": "node scripts/seedUsers.js",
+    "test:admin": "node scripts/testAdminEndpoints.js",
+    "test:smoke": "node scripts/testSmokeEndpoints.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --verbose",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
-  "keywords": [
-    "course-registration",
-    "university",
-    "mern-stack",
-    "education"
-  ],
-  "author": "University Course Registration Team",
-  "license": "MIT",
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.2",
-    "mongoose": "^8.8.0",
-    "react-router-dom": "^7.13.0"
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "json2csv": "^6.0.0-alpha.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "eslint": "^10.0.0",
+    "fast-check": "^4.5.3",
+    "jest": "^30.2.0",
+    "mongodb-memory-server": "^11.0.1",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.2.2"
   }
 }
