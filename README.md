@@ -15,13 +15,7 @@
     <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
     <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
     <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="License" />
-    <img src="https://github.com/your-username/university-course-registration/workflows/CI/badge.svg" alt="CI Status" />
   </p>
-
-  <br />
-
-  <!-- Placeholder for App Demo/Screenshot -->
-  <img src="/Screenshot 2026-02-03 162925.png" alt="App Screenshot" width="800" />
 
   <br />
 </div>
@@ -255,6 +249,29 @@ The CI/CD pipeline is defined in `.github/workflows/ci.yml`
 ### Status Badge
 
 ![CI Status](https://github.com/your-username/university-course-registration/workflows/CI/badge.svg)
+
+---
+
+## Screenshots
+
+<div align="center">
+
+### Login Page
+<img src="Shots/Login Page.png" alt="Login Page" width="800" />
+
+### Signup Page
+<img src="Shots/Signup Page.png" alt="Signup Page" width="800" />
+
+### Student Course Registration
+<img src="Shots/Student Registration .png" alt="Student Registration" width="800" />
+
+### Admin Dashboard
+<img src="Shots/Admin Dashboard Page.png" alt="Admin Dashboard" width="800" />
+
+### Admin Course Catalog
+<img src="Shots/Admin Course Registration Catalog.png" alt="Admin Course Catalog" width="800" />
+
+</div>
 
 ---
 
