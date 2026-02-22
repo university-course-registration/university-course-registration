@@ -23,70 +23,70 @@ const seedUsers = async () => {
       // Students at different levels
       {
         name: 'Suleiman Abdulkadir',
-        regNo: 'UG15/CS/1001',
+        regNo: 'CST/20/SWE/00482',
         email: 'suleiman.abdulkadir@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Usman Dayyabu Usman',
-        regNo: 'UG15/CS/1002',
+        regNo: 'CST/21/SWE/00652',
         email: 'usman.dayyabu@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Abdulhalim Muhammad Yaro',
-        regNo: 'UG15/CS/1003',
+        regNo: 'CST/21/SWE/00663',
         email: 'abdulhalim.yaro@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Suhaibu Salihu Musa',
-        regNo: 'UG15/CS/1004',
+        regNo: 'CST/20/SWE/00503',
         email: 'suhaibu.musa@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Maryam Muhammad Bello',
-        regNo: 'UG15/CS/1005',
+        regNo: 'CST/20/SWE/00502',
         email: 'maryam.bello@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Usman Muhammad Onimisi',
-        regNo: 'UG15/CS/1006',
+        regNo: 'CST/20/SWE/00513',
         email: 'usman.onimisi@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Samaila Aliyu',
-        regNo: 'UG15/CS/1007',
+        regNo: 'CST/22/SWE/00922',
         email: 'samaila.aliyu@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Achimugu Amina',
-        regNo: 'UG15/CS/1008',
+        regNo: 'CST/20/SWE/00483',
         email: 'achimugu.amina@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Usman Alamin Umar',
-        regNo: 'UG15/CS/1009',
+        regNo: 'CST/20/SWE/00512',
         email: 'usman.umar@student.edu',
         level: '400',
         role: 'student'
       },
       {
         name: 'Tahir Musa Tahir',
-        regNo: 'UG15/CS/1010',
+        regNo: 'CST/21/SWE/00683',
         email: 'tahir.musa@student.edu',
         level: '400',
         role: 'student'
@@ -94,14 +94,14 @@ const seedUsers = async () => {
       // Admin users
       {
         name: 'Admin User',
-        regNo: 'UG15/CS/ADMIN01',
+        regNo: 'ADMIN/001',
         email: 'admin@university.edu',
         level: '100',
         role: 'admin'
       },
       {
         name: 'Dr. Kabir Sani',
-        regNo: 'UG15/CS/ADMIN02',
+        regNo: 'ADMIN/002',
         email: 'kabir.sani@university.edu',
         level: '100',
         role: 'admin'

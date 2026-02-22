@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "seed": "node scripts/seedDatabase.js",
+    "seed": "node scripts/seedAll.js",
+    "seed:courses": "node scripts/seedDatabase.js",
     "seed:users": "node scripts/seedUsers.js",
     "test:admin": "node scripts/testAdminEndpoints.js",
     "test:smoke": "node scripts/testSmokeEndpoints.js",
