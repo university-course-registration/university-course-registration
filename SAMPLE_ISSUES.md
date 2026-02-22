@@ -2,6 +2,9 @@
 
 This document contains sample GitHub Issues that demonstrate proper issue tracking for the University Course Registration System. These can be used as templates when creating actual issues in the GitHub repository.
 
+**Repository:** https://github.com/university-course-registration/university-course-registration  
+**Issues Page:** https://github.com/university-course-registration/university-course-registration/issues
+
 ---
 
 ## Issue #1: Bug Report - Course Registration Fails with Special Characters
@@ -361,3 +364,33 @@ These sample issues demonstrate:
 - Appropriate labels for categorization
 - Consideration of implementation details
 - Links to related code or issues
+
+---
+
+## Quick Links
+
+- **Repository:** https://github.com/university-course-registration/university-course-registration
+- **Issues Page:** https://github.com/university-course-registration/university-course-registration/issues
+- **New Issue:** https://github.com/university-course-registration/university-course-registration/issues/new
+- **Contributing Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Assignment Guide:** [ASSIGNMENT.md](ASSIGNMENT.md)
+
+---
+
+## Team Members for Issue Assignment
+
+When assigning issues, consider these team members and their areas of expertise:
+
+**Leadership Team:**
+- @suletetes (Suleiman Abdulkadir) - Project Lead
+- @dayyabu17 (Usman Dayyabu Usman) - Repository Manager
+- @Abdulhalim717 (Abdulhalim Muhammad Yaro) - Maintainer
+
+**Development Team:**
+- @Aleski10 (Suhaibu Salihu Musa) - Server middleware and routes
+- @maryaamahbello (Maryam Muhammad Bello) - Integration tests
+- @Muhd-Usman (Usman Muhammad Onimisi) - Unit tests
+- @samaila22-bbr (Samaila Aliyu) - Server scripts and docs
+- @meenore (Achimugu Amina) - Client configuration
+- @alvmeen05 (Usman Alamin Umar) - Client core files
+- @Tahirimamu (Tahir Musa Tahir) - Client components
