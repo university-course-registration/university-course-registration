@@ -319,8 +319,6 @@ This project follows an open-source collaborative development model as per the c
 
 ### Team Members
 
-> **Note**: Update this section with actual team member names and their assigned roles
-
 | Name | Registration Number | Role(s) | GitHub Username |
 |------|-------------------|---------|-----------------|
 | [Name] | UG15/CS/XXXX | Project Lead, Contributor | @username |
