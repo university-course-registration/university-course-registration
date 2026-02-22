@@ -18,62 +18,76 @@ const seedUsers = async () => {
     const password = 'Password123!';
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Define users to create
+    // Define users to create - Team Members
     const usersData = [
       // Students at different levels
       {
         name: 'Suleiman Abdulkadir',
         regNo: 'UG15/CS/1001',
         email: 'suleiman.abdulkadir@student.edu',
-        level: '100',
-        role: 'student'
-      },
-      {
-        name: 'Usman Dayyubu',
-        regNo: 'UG15/CS/1002',
-        email: 'usman.dayyubu@student.edu',
-        level: '100',
-        role: 'student'
-      },
-      {
-        name: 'Abdulhalim Ibrahim',
-        regNo: 'UG15/CS/2001',
-        email: 'abdulhalim.ibrahim@student.edu',
-        level: '200',
-        role: 'student'
-      },
-      {
-        name: 'Amina Yusuf',
-        regNo: 'UG15/CS/2002',
-        email: 'amina.yusuf@student.edu',
-        level: '200',
-        role: 'student'
-      },
-      {
-        name: 'Fatima Muhammad',
-        regNo: 'UG15/CS/3001',
-        email: 'fatima.muhammad@student.edu',
-        level: '300',
-        role: 'student'
-      },
-      {
-        name: 'Ibrahim Aliyu',
-        regNo: 'UG15/CS/3002',
-        email: 'ibrahim.aliyu@student.edu',
-        level: '300',
-        role: 'student'
-      },
-      {
-        name: 'Aisha Bello',
-        regNo: 'UG15/CS/4001',
-        email: 'aisha.bello@student.edu',
         level: '400',
         role: 'student'
       },
       {
-        name: 'Musa Garba',
-        regNo: 'UG15/CS/4002',
-        email: 'musa.garba@student.edu',
+        name: 'Usman Dayyabu Usman',
+        regNo: 'UG15/CS/1002',
+        email: 'usman.dayyabu@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Abdulhalim Muhammad Yaro',
+        regNo: 'UG15/CS/1003',
+        email: 'abdulhalim.yaro@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Suhaibu Salihu Musa',
+        regNo: 'UG15/CS/1004',
+        email: 'suhaibu.musa@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Maryam Muhammad Bello',
+        regNo: 'UG15/CS/1005',
+        email: 'maryam.bello@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Usman Muhammad Onimisi',
+        regNo: 'UG15/CS/1006',
+        email: 'usman.onimisi@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Samaila Aliyu',
+        regNo: 'UG15/CS/1007',
+        email: 'samaila.aliyu@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Achimugu Amina',
+        regNo: 'UG15/CS/1008',
+        email: 'achimugu.amina@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Usman Alamin Umar',
+        regNo: 'UG15/CS/1009',
+        email: 'usman.umar@student.edu',
+        level: '400',
+        role: 'student'
+      },
+      {
+        name: 'Tahir Musa Tahir',
+        regNo: 'UG15/CS/1010',
+        email: 'tahir.musa@student.edu',
         level: '400',
         role: 'student'
       },
